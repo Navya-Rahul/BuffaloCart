@@ -7,6 +7,7 @@ import com.buffalocart.constants.Constants;
 import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
+import com.buffalocart.pages.SignOutPage;
 import com.buffalocart.utilities.ExcelUtility;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -25,6 +26,8 @@ public class HomeTest extends Base {
         extentTest.get().assignCategory("Regression");
         login=new LoginPage(driver);
         home=new HomePage(driver);
+        SignOutPage signOut = new SignOutPage(driver);
+        SoftAssert softAssert = new SoftAssert();
         List<String> loginList = login.getLoginData();
         login.enterLoginUserName(loginList.get(2));
         login.enterLoginPassword(loginList.get(3));
@@ -34,7 +37,11 @@ public class HomeTest extends Base {
         extentTest.get().log(Status.PASS, "Actual home page title is generated");
         String expectedTitle = home.getHomePageExpectedTitle();
         extentTest.get().log(Status.PASS, "Expected home page title generated");
-        Assert.assertEquals(actualTitle,expectedTitle,"ERROR : INVALID HOME PAGE TITLE PAGE FOUND");
+        softAssert.assertEquals(actualTitle,expectedTitle,"ERROR : INVALID HOME PAGE TITLE PAGE FOUND");
+        home.clickOnUserName();
+        login = signOut.clickOnSignout();
+        extentTest.get().log(Status.PASS, "Successfully signed out and navigated to login page");
+        softAssert.assertAll();
         extentTest.get().log(Status.PASS, "verify home page title test case passed");
     }
     @Test(priority = 7,enabled = true,description = "TC_007_Verify date displayed in home page")
@@ -42,6 +49,8 @@ public class HomeTest extends Base {
         extentTest.get().assignCategory("Regression");
         home=new HomePage(driver);
         login=new LoginPage(driver);
+        SoftAssert softAssert = new SoftAssert();
+        SignOutPage signOut = new SignOutPage(driver);
         List<String> loginList = login.getLoginData();
         login.enterLoginUserName(loginList.get(2));
         login.enterLoginPassword(loginList.get(3));
@@ -51,7 +60,11 @@ public class HomeTest extends Base {
         extentTest.get().log(Status.PASS, "Actual date is captured");
         String expectedDate = home.getActualDateInHomePage();
         extentTest.get().log(Status.PASS, "Expected date is captured");
-        Assert.assertEquals(actualDate,expectedDate,"ERROR : MISMATCH FOUND IN DATE DISPLAYED IN HOME PAGE");
+        softAssert.assertEquals(actualDate,expectedDate,"ERROR : MISMATCH FOUND IN DATE DISPLAYED IN HOME PAGE");
+        home.clickOnUserName();
+        login = signOut.clickOnSignout();
+        extentTest.get().log(Status.PASS, "Successfully signed out and navigated to login page");
+        softAssert.assertAll();
         extentTest.get().log(Status.PASS, "Verify date displayed in home page test case is passed");
     }
 }

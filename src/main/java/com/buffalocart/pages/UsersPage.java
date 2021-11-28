@@ -25,6 +25,10 @@ public class UsersPage extends TestHelperUtility {
     @FindBy(xpath=_user)
     private WebElement user;
 
+    private final String _searchBox = "//input[@class='form-control input-sm']";
+    @FindBy(xpath=_searchBox)
+    private WebElement searchBox;
+
     /*** User Action Methods ***/
     public UsersPage clickOnUserMenu()
     {
@@ -39,5 +43,13 @@ public class UsersPage extends TestHelperUtility {
     public String getExpectedUsersPageTitle() throws IOException {
         List<String> excelList = excel.readDataFromExcel(Constants.FILE_PATH,Constants.USERS_SHEET_NAME);
         return excelList.get(0);
+    }
+    public String getDataToEnter() throws IOException {
+        List<String> excelList = excel.readDataFromExcel(Constants.FILE_PATH,Constants.USERS_SHEET_NAME);
+        return excelList.get(1);
+    }
+    public void enterDataOnSearchBox(String dataToEnter)
+    {
+        page.enterText(searchBox,dataToEnter);
     }
 }

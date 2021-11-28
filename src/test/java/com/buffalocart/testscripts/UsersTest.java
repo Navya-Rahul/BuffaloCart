@@ -7,12 +7,12 @@ import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
 import java.util.List;
 
 public class UsersTest extends Base {
-    SignOutPage signOut;
     LoginPage login;
     UsersPage users;
     HomePage home;
@@ -25,6 +25,8 @@ public class UsersTest extends Base {
         userManagement = new UserManagementPage(driver);
         users = new UsersPage(driver);
         home = new HomePage(driver);
+        SignOutPage signOut = new SignOutPage(driver);
+        SoftAssert softAssert = new SoftAssert();
         List<String> loginList = login.getLoginData();
         login.enterLoginUserName(loginList.get(2));
         login.enterLoginPassword(loginList.get(3));
@@ -38,7 +40,12 @@ public class UsersTest extends Base {
         extentTest.get().log(Status.PASS, "Actual users page title successfully captured");
         String expectedTitle = users.getExpectedUsersPageTitle();
         extentTest.get().log(Status.PASS, "Expected users page title successfully captured");
-        Assert.assertEquals(actualTitle,expectedTitle,"ERROR : INVALID USERS PAGE TITLE FOUND");
+        softAssert.assertEquals(actualTitle,expectedTitle,"ERROR : INVALID USERS PAGE TITLE FOUND");
+        home.clickOnUserName();
+        login = signOut.clickOnSignout();
+        extentTest.get().log(Status.PASS, "Successfully signed out and navigated to login page");
+        softAssert.assertAll();
         extentTest.get().log(Status.PASS, "Verify users page title test case passed");
     }
+
 }

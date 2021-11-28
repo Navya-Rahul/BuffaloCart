@@ -55,10 +55,10 @@ public class LoginTest extends Base {
         String expectedUserName=loginList.get(4);
         extentTest.get().log(Status.PASS, "expected user name generated");
         softAssert.assertEquals(actualUserName,expectedUserName,"ERROR : LOGIN FAILED");
-        extentTest.get().log(Status.PASS, "Verify user login with valid user credentials test passed");
         home.clickOnUserName();
         login = signOut.clickOnSignout();
         softAssert.assertAll();
+        extentTest.get().log(Status.PASS, "Verify user login with valid user credentials test passed");
     }
     @Test(priority = 3,enabled = true,description = "TC_003_Verify the error message displayed for user login with invalid credentials")
     public void verifyErrorMessageWithInvalidCredentials() throws IOException {

@@ -6,9 +6,12 @@ import com.buffalocart.automationcore.Base;
 import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
+import com.buffalocart.pages.SignOutPage;
 import com.buffalocart.pages.UserManagementPage;
 import org.testng.Assert;
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,7 +27,9 @@ public class UserManagementTest extends Base {
         extentTest.get().assignCategory("Regression");
         login = new LoginPage(driver);
         home = new HomePage(driver);
+        SoftAssert softAssert = new SoftAssert();
         userManagement = new UserManagementPage(driver);
+        SignOutPage signOut = new SignOutPage(driver);
         List<String> loginList = login.getLoginData();
         login.enterLoginUserName(loginList.get(2));
         login.enterLoginPassword(loginList.get(3));
@@ -37,7 +42,11 @@ public class UserManagementTest extends Base {
         extentTest.get().log(Status.PASS, "Actual user Management Tab values successfully captured");
         List<String> expectedTabValues = userManagement.getExpectedUserManagementTabValues();
         extentTest.get().log(Status.PASS, "Expected user Management Tab values successfully captured");
-        Assert.assertEquals(actualTabValues,expectedTabValues,"MISMATCH FOUND IN USER MANAGEMENT SUB TAB VALUES");
-        extentTest.get().log(Status.PASS, "Verify the Usermangement sub tabs");
+        softAssert.assertEquals(actualTabValues,expectedTabValues,"MISMATCH FOUND IN USER MANAGEMENT SUB TAB VALUES");
+        home.clickOnUserName();
+        login = signOut.clickOnSignout();
+        extentTest.get().log(Status.PASS, "Successfully signed out and navigated to login page");
+        softAssert.assertAll();
+        extentTest.get().log(Status.PASS, "Verify the Usermangement sub tabs test case passed");
     }
 }
