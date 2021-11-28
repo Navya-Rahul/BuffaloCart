@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Suite" parallel="methods" thread-count="3">
+    <listeners>
+        <listener class-name="com.buffalocart.listener.TestListener"/>
+    </listeners>
+    <test name="BUFFALO CART">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.buffalocart.testscripts.LoginTest">
+                <methods>
+                    <include name="verifyLoginPageTitle"/>
+                    <include name="verifyUserLoginWithValidUserCredentials"/>
+                    <include name="verifyErrorMessageWithInvalidCredentials"/>
+                    <include name="verifyRememberMeCheckbox"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.ResetPasswordTest">
+                <methods>
+                    <include name="verifyErrorMessageOnResetPasswordPage"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.HomeTest">
+                <methods>
+                    <include name="verifyHomePageTitle"/>
+                    <include name="verifyDateInHomePage"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.SignOutTest">
+                <methods>
+                    <include name="verifyTheNavigationOfSignOutButton"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.UserManagementTest">
+                <methods>
+                    <include name="verifyUserManagementSubTabs"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.UsersTest">
+                <methods>
+                    <include name="verifyUsersPageTitle"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
