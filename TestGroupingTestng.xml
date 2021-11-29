@@ -46,6 +46,15 @@
             <class name="com.buffalocart.testscripts.UsersTest">
                 <methods>
                     <include name="verifyUsersPageTitle"/>
+                    <include name="verifyUserSearchWithValidData"/>
+                    <include name="verifyMessageInUserSearchWithInvalidData"/>
+                    <include name="verifyErrorMessageWithoutFillingMandatory"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.AddUsersTest">
+                <methods>
+                    <include name="verifyAddUsersPageTitle"/>
+                    <include name="verifyUserLoginWithNewlyAddedUser"/>
                 </methods>
             </class>
         </classes>

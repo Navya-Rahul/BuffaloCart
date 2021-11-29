@@ -16,6 +16,8 @@ public class UsersTest extends Base {
     LoginPage login;
     UsersPage users;
     HomePage home;
+    SoftAssert softAssert;
+    SignOutPage signOut;
     UserManagementPage userManagement;
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
     @Test(priority = 10,enabled = true,description = "TC_010_Verify users page title")
@@ -25,8 +27,8 @@ public class UsersTest extends Base {
         userManagement = new UserManagementPage(driver);
         users = new UsersPage(driver);
         home = new HomePage(driver);
-        SignOutPage signOut = new SignOutPage(driver);
-        SoftAssert softAssert = new SoftAssert();
+        signOut = new SignOutPage(driver);
+        softAssert = new SoftAssert();
         List<String> loginList = login.getLoginData();
         login.enterLoginUserName(loginList.get(2));
         login.enterLoginPassword(loginList.get(3));
@@ -47,5 +49,70 @@ public class UsersTest extends Base {
         softAssert.assertAll();
         extentTest.get().log(Status.PASS, "Verify users page title test case passed");
     }
-
+    @Test(priority = 11,enabled = true,description = "TC_011_Verify user search with valid data")
+    public void verifyUserSearchWithValidData() throws IOException {
+        extentTest.get().assignCategory("Smoke");
+        extentTest.get().assignCategory("Sanity");
+        extentTest.get().assignCategory("Regression");
+        login = new LoginPage(driver);
+        userManagement = new UserManagementPage(driver);
+        users = new UsersPage(driver);
+        home = new HomePage(driver);
+        signOut = new SignOutPage(driver);
+        softAssert = new SoftAssert();
+        List<String> loginList = login.getLoginData();
+        login.enterLoginUserName(loginList.get(2));
+        login.enterLoginPassword(loginList.get(3));
+        login.clickOnLoginButton();
+        extentTest.get().log(Status.PASS, "Successfully Logged in");
+        home.clickOnEndTourButton();
+        userManagement.clickOnUserManagementTab();
+        users.clickOnUserMenu();
+        extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
+        String expectedSearchResult = users.getExpectedSearchData();
+        extentTest.get().log(Status.PASS, "Expected user search data successfully captured");
+        users.enterDataOnSearchBox(expectedSearchResult);
+        extentTest.get().log(Status.PASS, "Successfully data entered on search box");
+        String actualSearchResult = users.getActualSearchData();
+        extentTest.get().log(Status.PASS, "Actual user search data successfully captured");
+        softAssert.assertEquals(actualSearchResult,expectedSearchResult,"ERROR : INVALID SEARCH RESULT FOUND");
+        home.clickOnUserName();
+        login = signOut.clickOnSignout();
+        extentTest.get().log(Status.PASS, "Successfully signed out and navigated to login page");
+        softAssert.assertAll();
+        extentTest.get().log(Status.PASS, "Verify user search with valid data test case passed");
+    }
+    @Test(priority = 12,enabled = true,description = "TC_012_Verify message displayed by user search with invalid data")
+    public void verifyMessageInUserSearchWithInvalidData() throws IOException {
+        extentTest.get().assignCategory("Smoke");
+        extentTest.get().assignCategory("Regression");
+        login = new LoginPage(driver);
+        userManagement = new UserManagementPage(driver);
+        users = new UsersPage(driver);
+        home = new HomePage(driver);
+        signOut = new SignOutPage(driver);
+        softAssert = new SoftAssert();
+        List<String> loginList = login.getLoginData();
+        login.enterLoginUserName(loginList.get(2));
+        login.enterLoginPassword(loginList.get(3));
+        login.clickOnLoginButton();
+        extentTest.get().log(Status.PASS, "Successfully Logged in");
+        home.clickOnEndTourButton();
+        userManagement.clickOnUserManagementTab();
+        users.clickOnUserMenu();
+        extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
+        String data = users.getInvalidSearchData();
+        users.enterDataOnSearchBox(data);
+        extentTest.get().log(Status.PASS, "Invalid data entered on search box");
+        String expectedMessage = users.getExpectedMessage();
+        extentTest.get().log(Status.PASS, "Expected Message successfully captured");
+        String actualMessage = users.getActualMessage();
+        extentTest.get().log(Status.PASS, "Actual Message successfully captured");
+        softAssert.assertEquals(actualMessage,expectedMessage,"ERROR : INVALID SEARCH RESULT FOUND WHILE SEARCHING WITH INVALID USER DATA");
+        home.clickOnUserName();
+        login = signOut.clickOnSignout();
+        extentTest.get().log(Status.PASS, "Successfully signed out and navigated to login page");
+        softAssert.assertAll();
+        extentTest.get().log(Status.PASS, "Verify message displayed by user search with invalid data test case passed");
+    }
 }

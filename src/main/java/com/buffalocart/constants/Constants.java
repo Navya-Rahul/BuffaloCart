@@ -8,4 +8,5 @@ public class Constants {
     public static final String HOME_SHEET_NAME = "Home";
     public static final String USER_MANAGEMENT_SHEET_NAME = "UserManagement";
     public static final String USERS_SHEET_NAME = "Users";
+    public static final String ADD_USERS_SHEET_NAME = "AddUsers";
 }

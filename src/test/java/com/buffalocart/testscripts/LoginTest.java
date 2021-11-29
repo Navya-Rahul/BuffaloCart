@@ -22,7 +22,7 @@ public class LoginTest extends Base {
     SignOutPage signOut;
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
     /*** Test Cases ***/
-    @Test(priority=1,enabled=true,description ="TC_001_Verify Login page title")
+    @Test(priority=1,enabled=true,description ="TC_001_Verify Login page title" ,groups = {"Regression"})
     public void verifyLoginPageTitle() throws IOException {
         extentTest.get().assignCategory("Regression");
         login=new LoginPage(driver);
@@ -35,7 +35,7 @@ public class LoginTest extends Base {
         Assert.assertEquals(actualTitle,expectedTitle,"ERROR : INVALID LOGIN PAGE TITLE PAGE FOUND");
         extentTest.get().log(Status.PASS, "verify login page title test case passed");
     }
-    @Test(priority = 2,enabled = true,description = "TC_002_Verify user login with valid user credentials")
+    @Test(priority = 2,enabled = true,description = "TC_002_Verify user login with valid user credentials",groups = {"Regression","Smoke"})
     public void verifyUserLoginWithValidUserCredentials() throws IOException {
         extentTest.get().assignCategory("Regression");
         extentTest.get().assignCategory("Smoke");
