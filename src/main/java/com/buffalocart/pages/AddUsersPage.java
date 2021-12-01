@@ -71,9 +71,9 @@ public class AddUsersPage extends TestHelperUtility {
     public String getActualAddUsersPageTitle() {
         return page.getPageTitle(driver);
     }
-    public void clickOnSaveButton()
-    {
+    public UsersPage clickOnSaveButton() throws IOException {
         page.clickOnElement(saveButton);
+        return new UsersPage(driver);
     }
     public String getActualErrorMessage() {
         return page.getElementText(addUserErrorMessage);
@@ -142,11 +142,6 @@ public class AddUsersPage extends TestHelperUtility {
     public void clickOnToastMessage() throws InterruptedException {
         page.clickOnElement(toastMessage);
     }
-    public void waitTillToastMessage()
-    {
-        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Id, _toastMessage);
-    }
-
     public String getNewUserName() {
         return excelList.get(8);
     }

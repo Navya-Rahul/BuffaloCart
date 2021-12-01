@@ -19,7 +19,7 @@ public class ResetPasswordTest extends Base {
     ResetPasswordPage reset;
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
     /*** Test Cases ***/
-    @Test(priority = 5,enabled = true,description = "TC_005_Verify error message displyed on  Reset Password page with invalid email id")
+    @Test(priority = 5,enabled = true,description = "TC_005_Verify error message displyed on  Reset Password page with invalid email id",groups = {"Regression"})
     public void verifyErrorMessageOnResetPasswordPage() throws IOException {
         extentTest.get().assignCategory("Regression");
         login=new LoginPage(driver);

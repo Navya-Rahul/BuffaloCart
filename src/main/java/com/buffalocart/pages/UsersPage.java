@@ -1,6 +1,7 @@
 package com.buffalocart.pages;
 
 import com.buffalocart.constants.Constants;
+import com.buffalocart.utilities.TableUtility;
 import com.buffalocart.utilities.TestHelperUtility;
 import com.buffalocart.utilities.WaitUtility;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UsersPage extends TestHelperUtility {
@@ -39,6 +41,18 @@ public class UsersPage extends TestHelperUtility {
     private final String _addUserButton = "//a[@class='btn btn-block btn-primary']";
     @FindBy(xpath=_addUserButton)
     private WebElement addUserButton;
+
+    private final String _rElement = "//table[@id='users_table']//tbody//tr";
+    @FindBy(xpath = _rElement)
+    private List<WebElement> rowElement;
+
+    private final String _cElement = "//table[@id='users_table']//tbody//tr//td";
+    @FindBy(xpath = _cElement)
+    private List<WebElement> colElement;
+
+    private final String _editButton = "//a[@class='btn btn-xs btn-primary']";
+    @FindBy(xpath=_editButton)
+    private WebElement editButton;
 
     /*** User Action Methods ***/
     public UsersPage clickOnUserMenu() throws IOException {
@@ -85,5 +99,18 @@ public class UsersPage extends TestHelperUtility {
     public AddUsersPage clickOnAddUsersButton() throws IOException {
         page.clickOnElement(addUserButton);
         return new AddUsersPage(driver);
+    }
+    public List<ArrayList<String>> getTableData() {
+        return TableUtility.getGridData(rowElement, colElement);
+
+    }
+
+    public boolean getTableContainsData(List<ArrayList<String>> tableData, String expectedUserName) {
+        boolean status = false;
+        for(int i=0;i<tableData.size();i++)
+            if(tableData.get(i).contains(expectedUserName)) {
+                status = true;
+            }
+        return status;
     }
 }

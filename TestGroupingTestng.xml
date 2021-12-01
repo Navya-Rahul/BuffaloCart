@@ -5,6 +5,13 @@
         <listener class-name="com.buffalocart.listener.TestListener"/>
     </listeners>
     <test name="BUFFALO CART">
+        <!--<groups>
+            <run>
+                <include name="Regression"/>
+                <include name="Sanity"/>
+                <include name="Smoke"/>
+            </run>
+        </groups>-->
         <parameter name="browser" value="chrome"/>
         <groups>
             <run>
@@ -55,6 +62,7 @@
                 <methods>
                     <include name="verifyAddUsersPageTitle"/>
                     <include name="verifyUserLoginWithNewlyAddedUser"/>
+                    <include name="verifyUserCanAddUserDetails"/>
                 </methods>
             </class>
         </classes>

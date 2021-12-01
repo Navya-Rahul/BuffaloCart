@@ -60,7 +60,7 @@ public class LoginTest extends Base {
         softAssert.assertAll();
         extentTest.get().log(Status.PASS, "Verify user login with valid user credentials test passed");
     }
-    @Test(priority = 3,enabled = true,description = "TC_003_Verify the error message displayed for user login with invalid credentials")
+    @Test(priority = 3,enabled = true,description = "TC_003_Verify the error message displayed for user login with invalid credentials",groups = {"Regression"})
     public void verifyErrorMessageWithInvalidCredentials() throws IOException {
         extentTest.get().assignCategory("Regression");
         login=new LoginPage(driver);

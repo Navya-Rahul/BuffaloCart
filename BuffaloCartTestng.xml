@@ -47,7 +47,8 @@
         <class name="com.buffalocart.testscripts.AddUsersTest">
             <methods>
                 <exclude name="verifyAddUsersPageTitle"/>
-                <include name="verifyUserLoginWithNewlyAddedUser"/>
+                <exclude name="verifyUserLoginWithNewlyAddedUser"/>
+                <include name="verifyUserCanAddUserDetails"/>
             </methods>
         </class>
     </classes>

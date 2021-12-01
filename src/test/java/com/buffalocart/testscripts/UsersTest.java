@@ -20,7 +20,7 @@ public class UsersTest extends Base {
     SignOutPage signOut;
     UserManagementPage userManagement;
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
-    @Test(priority = 10,enabled = true,description = "TC_010_Verify users page title")
+    @Test(priority = 10,enabled = true,description = "TC_010_Verify users page title",groups = {"Regression"})
     public void verifyUsersPageTitle() throws IOException {
         extentTest.get().assignCategory("Regression");
         login = new LoginPage(driver);
@@ -49,7 +49,7 @@ public class UsersTest extends Base {
         softAssert.assertAll();
         extentTest.get().log(Status.PASS, "Verify users page title test case passed");
     }
-    @Test(priority = 11,enabled = true,description = "TC_011_Verify user search with valid data")
+    @Test(priority = 11,enabled = true,description = "TC_011_Verify user search with valid data",groups = {"Smoke","Sanity","Regression"})
     public void verifyUserSearchWithValidData() throws IOException {
         extentTest.get().assignCategory("Smoke");
         extentTest.get().assignCategory("Sanity");
@@ -82,7 +82,7 @@ public class UsersTest extends Base {
         softAssert.assertAll();
         extentTest.get().log(Status.PASS, "Verify user search with valid data test case passed");
     }
-    @Test(priority = 12,enabled = true,description = "TC_012_Verify message displayed by user search with invalid data")
+    @Test(priority = 12,enabled = true,description = "TC_012_Verify message displayed by user search with invalid data",groups = {"Smoke","Regression"})
     public void verifyMessageInUserSearchWithInvalidData() throws IOException {
         extentTest.get().assignCategory("Smoke");
         extentTest.get().assignCategory("Regression");

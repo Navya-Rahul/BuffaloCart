@@ -8,8 +8,6 @@ import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
 import com.buffalocart.pages.SignOutPage;
-import com.buffalocart.utilities.ExcelUtility;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -21,7 +19,7 @@ public class HomeTest extends Base {
     HomePage home;
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
     /*** Test Cases ***/
-    @Test(priority=6,enabled=true,description ="TC_006_Verify Home page title")
+    @Test(priority=6,enabled=true,description ="TC_006_Verify Home page title",groups = {"Regression"})
     public void verifyHomePageTitle() throws IOException {
         extentTest.get().assignCategory("Regression");
         login=new LoginPage(driver);
@@ -44,7 +42,7 @@ public class HomeTest extends Base {
         softAssert.assertAll();
         extentTest.get().log(Status.PASS, "verify home page title test case passed");
     }
-    @Test(priority = 7,enabled = true,description = "TC_007_Verify date displayed in home page")
+    @Test(priority = 7,enabled = true,description = "TC_007_Verify date displayed in home page",groups = {"Regression"})
     public void verifyDateInHomePage() throws IOException {
         extentTest.get().assignCategory("Regression");
         home=new HomePage(driver);
