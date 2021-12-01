@@ -40,7 +40,7 @@ public class UserManagementPage extends TestHelperUtility {
     }
     public List getActualUserManagementTabValues()
     {
-        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath,_userManagementList);
+        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath,_userManagementList,wait.EXPLICIT_WAIT);
         List<String> list = new ArrayList<String>();
         for (int i = 0;i< userManagementList.size();i++)
         {

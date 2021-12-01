@@ -43,7 +43,7 @@ public class HomePage extends TestHelperUtility {
     /*** User Action Methods ***/
     public String getUserName()
     {
-        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath,_userName);
+        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath,_userName,wait.EXPLICIT_WAIT);
         return page.getElementText(userName);
     }
     public void clickOnEndTourButton()

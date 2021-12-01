@@ -9,4 +9,6 @@ public class Constants {
     public static final String USER_MANAGEMENT_SHEET_NAME = "UserManagement";
     public static final String USERS_SHEET_NAME = "Users";
     public static final String ADD_USERS_SHEET_NAME = "AddUsers";
+    public static final String UPDATE_USERS_SHEET_NAME = "UpdateUsers";
+    public static final String VIEW_USERS_SHEET_NAME = "ViewUsers";
 }

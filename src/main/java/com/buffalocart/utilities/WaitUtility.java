@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 
 public class WaitUtility {
+    WebDriverWait wait;
     public static final long PAGE_LOAD_WAIT = 20;
     public static final long EXPLICIT_WAIT = 20;
     public static final long IMPLICIT_WAIT = 20;
@@ -15,8 +16,9 @@ public class WaitUtility {
     {
         Id,Xpath,Cssselector,Classname,Name,Tagname,Linktext,Partiallinktext
     }
-    public void waitForVisibilityOfElement(WebDriver driver, Enum locatortype, String target)
+    public void waitForVisibilityOfElement(WebDriver driver, Enum locatortype, String target,long waitParameter)
     {
+        wait = new WebDriverWait(driver, TimeUnit.SECONDS.toSeconds(waitParameter));
         WebDriverWait wait = new WebDriverWait(driver, TimeUnit.SECONDS.toSeconds(EXPLICIT_WAIT));
         if (locatortype.equals(LocatorType.Id))
         {

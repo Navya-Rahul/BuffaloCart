@@ -21,7 +21,6 @@ public class AddUsersTest extends Base {
     UserManagementPage userManagement;
     AddUsersPage addUsers;
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
-    //private Object UsersPage;
 
     @Test(priority = 13,enabled = true,description = "TC_013_Verify the error message displayed without filling mandatory fields in add user form", groups = {"Regression"})
     public void verifyErrorMessageWithoutFillingMandatory() throws IOException {

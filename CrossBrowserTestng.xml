@@ -51,6 +51,22 @@
                     <include name="verifyUserCanAddUserDetails"/>
                 </methods>
             </class>
+            <class name="com.buffalocart.testscripts.UpdateUserTest">
+                <methods>
+                    <include name="verifyEditUserPageTitle"/>
+                    <include name="verifyUserCanEditTheUserDetails"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.DeleteUserTest">
+                <methods>
+                    <include name="verifyUserCanDeleteUser"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.ViewUserTest">
+                <methods>
+                    <include name="verifyUserCanViewTheUserDetails"/>
+                </methods>
+            </class>
         </classes>
     </test>
     <test name="BUFFALO CART">
@@ -100,6 +116,22 @@
                     <include name="verifyUserCanAddUserDetails"/>
                 </methods>
             </class>
+            <class name="com.buffalocart.testscripts.UpdateUserTest">
+                <methods>
+                    <include name="verifyEditUserPageTitle"/>
+                    <include name="verifyUserCanEditTheUserDetails"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.DeleteUserTest">
+                <methods>
+                    <include name="verifyUserCanDeleteUser"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.ViewUserTest">
+                <methods>
+                    <include name="verifyUserCanViewTheUserDetails"/>
+                </methods>
+            </class>
         </classes>
     </test>
     <test name="BUFFALO CART">
@@ -147,6 +179,22 @@
                     <include name="verifyAddUsersPageTitle"/>
                     <include name="verifyUserLoginWithNewlyAddedUser"/>
                     <include name="verifyUserCanAddUserDetails"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.UpdateUserTest">
+                <methods>
+                    <include name="verifyEditUserPageTitle"/>
+                    <include name="verifyUserCanEditTheUserDetails"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.DeleteUserTest">
+                <methods>
+                    <include name="verifyUserCanDeleteUser"/>
+                </methods>
+            </class>
+            <class name="com.buffalocart.testscripts.ViewUserTest">
+                <methods>
+                    <include name="verifyUserCanViewTheUserDetails"/>
                 </methods>
             </class>
         </classes>

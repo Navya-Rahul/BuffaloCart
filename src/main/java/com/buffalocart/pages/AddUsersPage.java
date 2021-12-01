@@ -111,7 +111,7 @@ public class AddUsersPage extends TestHelperUtility {
     }
     public void getRoles()
     {
-        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Id, _role);
+        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Id, _role,wait.EXPLICIT_WAIT);
         page.selectDropdownByIndex(role,Integer.parseInt(excelList.get(7)));
     }
     public void enterPrefix(String prefixToEnter)

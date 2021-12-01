@@ -124,5 +124,9 @@ public class PageUtility {
     public List<WebElement> getWebElementList(WebDriver driver,String xpath){
         return driver.findElements(By.xpath(xpath));
     }
+    public void clearText(WebElement element){
+        element.clear();
+    }
+
 }
 

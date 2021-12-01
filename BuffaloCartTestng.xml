@@ -48,7 +48,24 @@
             <methods>
                 <exclude name="verifyAddUsersPageTitle"/>
                 <exclude name="verifyUserLoginWithNewlyAddedUser"/>
-                <include name="verifyUserCanAddUserDetails"/>
+                <exclude name="verifyUserCanAddUserDetails"/>
+                <include name="verifyEditUserPageTitle"/>
+            </methods>
+        </class>
+        <class name="com.buffalocart.testscripts.UpdateUserTest">
+            <methods>
+                <exclude name="verifyEditUserPageTitle"/>
+                <exclude name="verifyUserCanEditTheUserDetails"/>
+            </methods>
+        </class>
+        <class name="com.buffalocart.testscripts.DeleteUserTest">
+            <methods>
+                <exclude name="verifyUserCanDeleteUser"/>
+            </methods>
+        </class>
+        <class name="com.buffalocart.testscripts.ViewUserTest">
+            <methods>
+                <include name="verifyUserCanViewTheUserDetails"/>
             </methods>
         </class>
     </classes>
