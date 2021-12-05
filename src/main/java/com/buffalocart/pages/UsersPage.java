@@ -26,9 +26,6 @@ public class UsersPage extends TestHelperUtility {
 
     List<String> excelList = excel.readDataFromExcel(Constants.FILE_PATH, Constants.USERS_SHEET_NAME);
     /*** Web Elements ***/
-    private final String _user = "//ul[@class='treeview-menu menu-open']//i[@class='fa fa-user']";
-    @FindBy(xpath = _user)
-    private WebElement user;
 
     private final String _searchBox = "//input[@class='form-control input-sm']";
     @FindBy(xpath = _searchBox)
@@ -58,20 +55,15 @@ public class UsersPage extends TestHelperUtility {
     @FindBy(xpath = _viewButton)
     private WebElement viewButton;
 
-    private final String _rElement = "//table[@id='users_table']//tbody//tr";
-    @FindBy(xpath = _rElement)
+    private final String _rowElement = "//table[@id='users_table']//tbody//tr";
+    @FindBy(xpath = _rowElement)
     private List<WebElement> rowElement;
 
-    private final String _cElement = "//table[@id='users_table']//tbody//tr//td";
-    @FindBy(xpath = _cElement)
+    private final String _colElement = "//table[@id='users_table']//tbody//tr//td";
+    @FindBy(xpath = _colElement)
     private List<WebElement> colElement;
 
     /*** User Action Methods ***/
-    public UsersPage clickOnUserMenu() throws IOException {
-        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath, _user, wait.EXPLICIT_WAIT);
-        page.clickOnElement(user);
-        return new UsersPage(driver);
-    }
 
     public String getActualUsersPageTitle() {
         return page.getPageTitle(driver);

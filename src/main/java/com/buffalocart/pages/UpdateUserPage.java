@@ -46,11 +46,8 @@ public class UpdateUserPage extends TestHelperUtility {
         return new UsersPage(driver);
     }
 
-    public void enterNewData(String newData) {
-        page.enterText(newEmail,newData);
-    }
-    public void setValueEmail(){
+    public void setValueEmail(String newDataToEnter){
         page.clearText(newEmail);
-        page.enterText(newEmail,getNewDataToEdit());
+        page.enterText(newEmail,newDataToEnter);
     }
 }

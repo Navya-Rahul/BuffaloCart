@@ -42,7 +42,7 @@ public class ViewUserTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully Logged in");
         home.clickOnEndTourButton();
         userManagement.clickOnUserManagementTab();
-        users.clickOnUserMenu();
+        users = userManagement.clickOnUserMenu();
         extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
         String dataToView = users.getUserToView();
         extentTest.get().log(Status.PASS, "Successfully captured the user to view");

@@ -39,7 +39,7 @@ public class AddUsersTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully Logged in");
         home.clickOnEndTourButton();
         userManagement.clickOnUserManagementTab();
-        users.clickOnUserMenu();
+        users = userManagement.clickOnUserMenu();
         extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
         addUsers = users.clickOnAddUsersButton();
         extentTest.get().log(Status.PASS, "Successfully navigated to add users page");
@@ -73,7 +73,7 @@ public class AddUsersTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully Logged in");
         home.clickOnEndTourButton();
         userManagement.clickOnUserManagementTab();
-        users.clickOnUserMenu();
+        users = userManagement.clickOnUserMenu();
         extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
         addUsers = users.clickOnAddUsersButton();
         extentTest.get().log(Status.PASS, "Successfully navigated to add users page");
@@ -121,7 +121,7 @@ public class AddUsersTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully Logged in");
         home.clickOnEndTourButton();
         userManagement.clickOnUserManagementTab();
-        users.clickOnUserMenu();
+        users = userManagement.clickOnUserMenu();
         extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
         addUsers = users.clickOnAddUsersButton();
         extentTest.get().log(Status.PASS, "Successfully navigated to add users page");
@@ -136,7 +136,7 @@ public class AddUsersTest extends Base {
         softAssert.assertAll();
         extentTest.get().log(Status.PASS, "Verify Add Users page title test case passed");
     }
-    @Test(priority = 16,enabled = true,description = "TC_014_Verify user login with newly added user",groups = {"Smoke","Sanity","Regression"})
+    @Test(priority = 16,enabled = true,description = "TC_016_Verify  user can add user details",groups = {"Smoke","Sanity","Regression"})
     public void verifyUserCanAddUserDetails() throws IOException, InterruptedException {
         extentTest.get().assignCategory("Smoke");
         extentTest.get().assignCategory("Sanity");
@@ -155,7 +155,7 @@ public class AddUsersTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully Logged in");
         home.clickOnEndTourButton();
         userManagement.clickOnUserManagementTab();
-        users.clickOnUserMenu();
+        users = userManagement.clickOnUserMenu();
         extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
         addUsers = users.clickOnAddUsersButton();
         extentTest.get().log(Status.PASS, "Successfully navigated to add users page");
@@ -170,11 +170,9 @@ public class AddUsersTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully entered the user details");
         users = addUsers.clickOnSaveButton();
         extentTest.get().log(Status.PASS, "Successfully clicked on save button");
-        //addUsers.clickOnToastMessage();
         Thread.sleep(6000);
         String userName = addUsers.getExpectedUserName();
         List<ArrayList<String>> tableData = users.getTableData();
-        System.out.println(tableData);
         boolean status = users.getTableContainsData(tableData,userName);
         softAssert.assertTrue(status,"ERROR : INVALID USER");
         extentTest.get().log(Status.PASS, "User can successfully add details");

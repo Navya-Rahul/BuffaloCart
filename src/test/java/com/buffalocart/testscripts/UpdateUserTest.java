@@ -40,7 +40,7 @@ public class UpdateUserTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully Logged in");
         home.clickOnEndTourButton();
         userManagement.clickOnUserManagementTab();
-        users.clickOnUserMenu();
+        users = userManagement.clickOnUserMenu();
         extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
         String userName = updateUser.getEditUserSearch();
         Thread.sleep(6000);
@@ -75,14 +75,15 @@ public class UpdateUserTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully Logged in");
         home.clickOnEndTourButton();
         userManagement.clickOnUserManagementTab();
-        users.clickOnUserMenu();
+        users = userManagement.clickOnUserMenu();
         extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
         String userName = updateUser.getEditUserSearch();
+        extentTest.get().log(Status.PASS, "Successfully captured username to search");
         Thread.sleep(6000);
         updateUser = users.clickOnEditButton(userName);
-        extentTest.get().log(Status.PASS, "Successfully captured username to search");
+        extentTest.get().log(Status.PASS, "Successfully clicked on edit button");
         String newData = updateUser.getNewDataToEdit();
-        updateUser.setValueEmail();
+        updateUser.setValueEmail(newData);
         extentTest.get().log(Status.PASS, "Edited email for a user");
         users=updateUser.clickOnUpdateButton();
         extentTest.get().log(Status.PASS, "Successfully clicked Update button");

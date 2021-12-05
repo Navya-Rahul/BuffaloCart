@@ -26,6 +26,14 @@ public class UserManagementPage extends TestHelperUtility {
     @FindBy(xpath = _userManagementButton)
     private WebElement userManagementButton;
 
+    private final String _user = "//ul[@class='treeview-menu menu-open']//i[@class='fa fa-user']";
+    @FindBy(xpath = _user)
+    private WebElement user;
+
+    private final String _role = "//ul[@class='treeview-menu menu-open']//i[@class='fa fa-briefcase']";
+    @FindBy(xpath=_role)
+    private WebElement role;
+
     private final String _userManagementList = "//ul[@class='treeview-menu menu-open']//span";
     @FindBy(xpath = _userManagementList)
     private List<WebElement> userManagementList;
@@ -47,5 +55,15 @@ public class UserManagementPage extends TestHelperUtility {
             list.add(userManagementList.get(i).getText());
         }
         return list;
+    }
+    public UsersPage clickOnUserMenu() throws IOException {
+        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath, _user, wait.EXPLICIT_WAIT);
+        page.clickOnElement(user);
+        return new UsersPage(driver);
+    }
+    public RolesPage clickOnRoleMenu() throws IOException {
+        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath, _role, wait.EXPLICIT_WAIT);
+        page.clickOnElement(role);
+        return new RolesPage(driver);
     }
 }

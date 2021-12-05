@@ -65,7 +65,29 @@
         </class>
         <class name="com.buffalocart.testscripts.ViewUserTest">
             <methods>
-                <include name="verifyUserCanViewTheUserDetails"/>
+                <exclude name="verifyUserCanViewTheUserDetails"/>
+            </methods>
+        </class>
+        <class name="com.buffalocart.testscripts.RolesTest">
+            <methods>
+                <exclude name="verifyRolesPageTitle"/>
+            </methods>
+        </class>
+        <class name="com.buffalocart.testscripts.AddRolesTest">
+        <methods>
+            <exclude name="verifyAddRolesPageTitle"/>
+            <exclude name="verifyUserCanAddRoles"/>
+        </methods>
+    </class>
+        <class name="com.buffalocart.testscripts.UpdateRolesTest">
+            <methods>
+                <exclude name="verifyEditRolePageTitle"/>
+                <exclude name="verifyUserCanUpdateRole"/>
+            </methods>
+        </class>
+        <class name="com.buffalocart.testscripts.DeleteRolesTest">
+            <methods>
+                <include name="verifyUserCanDeleteRole"/>
             </methods>
         </class>
     </classes>

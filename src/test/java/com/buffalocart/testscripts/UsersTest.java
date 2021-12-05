@@ -36,7 +36,7 @@ public class UsersTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully Logged in");
         home.clickOnEndTourButton();
         userManagement.clickOnUserManagementTab();
-        users.clickOnUserMenu();
+        users = userManagement.clickOnUserMenu();
         extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
         String actualTitle = users.getActualUsersPageTitle();
         extentTest.get().log(Status.PASS, "Actual users page title successfully captured");
@@ -67,7 +67,7 @@ public class UsersTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully Logged in");
         home.clickOnEndTourButton();
         userManagement.clickOnUserManagementTab();
-        users.clickOnUserMenu();
+        users = userManagement.clickOnUserMenu();
         extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
         String expectedSearchResult = users.getExpectedSearchData();
         extentTest.get().log(Status.PASS, "Expected user search data successfully captured");
@@ -99,7 +99,7 @@ public class UsersTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully Logged in");
         home.clickOnEndTourButton();
         userManagement.clickOnUserManagementTab();
-        users.clickOnUserMenu();
+        users = userManagement.clickOnUserMenu();
         extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
         String data = users.getInvalidSearchData();
         users.enterDataOnSearchBox(data);
