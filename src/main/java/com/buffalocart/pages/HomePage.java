@@ -24,7 +24,7 @@ public class HomePage extends TestHelperUtility {
     }
 
     /*** Web Elements ***/
-    private final String _userName = "//a[@class='dropdown-toggle']//span";
+    private final String _userName = "//a[@class='dropdown-toggle']";
     @FindBy(xpath=_userName)
     private WebElement userName;
 
@@ -43,7 +43,6 @@ public class HomePage extends TestHelperUtility {
     /*** User Action Methods ***/
     public String getUserName()
     {
-        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath,_userName,wait.EXPLICIT_WAIT);
         return page.getElementText(userName);
     }
     public void clickOnEndTourButton()
@@ -52,12 +51,9 @@ public class HomePage extends TestHelperUtility {
     }
     public void clickOnUserName()
     {
+        //wait.setExplicitWait(driver);
+        //wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath,_userName);
         page.clickOnElement(userName);
-    }
-    public LoginPage clickOnLogout()
-    {
-        page.clickOnElement(logoutButton);
-        return new LoginPage(driver);
     }
     public String getHomePageActualTitle()
     {

@@ -6,6 +6,7 @@ import com.buffalocart.automationcore.Base;
 import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -19,6 +20,7 @@ public class RolesTest extends Base {
     HomePage home;
     SoftAssert softAssert;
     SignOutPage signOut;
+    AddUsersPage addUsers;
     UserManagementPage userManagement;
     RolesPage roles;
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
@@ -31,6 +33,7 @@ public class RolesTest extends Base {
         home = new HomePage(driver);
         signOut = new SignOutPage(driver);
         roles = new RolesPage(driver);
+        addUsers = new AddUsersPage(driver);
         softAssert = new SoftAssert();
         List<String> loginList = login.getLoginData();
         login.enterLoginUserName(loginList.get(2));
@@ -52,5 +55,40 @@ public class RolesTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully signed out and navigated to login page");
         softAssert.assertAll();
         extentTest.get().log(Status.PASS, "Verify Roles page title test case passed");
+    }
+    @Test(priority = 27,enabled = true,description = "TC_027_Verify whether the added role in Role page is listed in roles field in user add page",groups = {"Regression"})
+    public void verifyAddedRolesListedInRolesFiels() throws IOException {
+        extentTest.get().assignCategory("Regression");
+        login = new LoginPage(driver);
+        userManagement = new UserManagementPage(driver);
+        users = new UsersPage(driver);
+        home = new HomePage(driver);
+        signOut = new SignOutPage(driver);
+        roles = new RolesPage(driver);
+        softAssert = new SoftAssert();
+        List<String> loginList = login.getLoginData();
+        login.enterLoginUserName(loginList.get(2));
+        login.enterLoginPassword(loginList.get(3));
+        login.clickOnLoginButton();
+        extentTest.get().log(Status.PASS, "Successfully Logged in");
+        home.clickOnEndTourButton();
+        userManagement.clickOnUserManagementTab();
+        extentTest.get().log(Status.PASS, "Successfully clicked on user management tab");
+        users = userManagement.clickOnUserMenu();
+        extentTest.get().log(Status.PASS, "Successfully clicked on user menu");
+        addUsers = users.clickOnAddUsersButton();
+        extentTest.get().log(Status.PASS, "Successfully navigated to add users page");
+        String roleToSearch = roles.getEditRoleSearch();
+        extentTest.get().log(Status.PASS, "Successfully captured the role to search");
+        roles.clickOnDropdownArrow();
+        boolean status = roles.getDropdownData(roleToSearch);
+        extentTest.get().log(Status.PASS, "Successfully captured the values in role field");
+        softAssert.assertTrue(status,"ERROR : FAILED TO ADD ROLES");
+        softAssert.assertAll();
+        home.clickOnUserName();
+        login = signOut.clickOnSignout();
+        extentTest.get().log(Status.PASS, "Successfully signed out and navigated to login page");
+        softAssert.assertAll();
+        extentTest.get().log(Status.PASS, "Verify whether the added role in Role page is listed in roles field in user add page test case passed");
     }
 }

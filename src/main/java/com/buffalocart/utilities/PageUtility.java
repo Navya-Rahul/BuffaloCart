@@ -112,10 +112,8 @@ public class PageUtility {
         select.selectByIndex(value);
     }
     public List<WebElement> selectGetOption(WebElement element){
-        select = new Select(element);
-        list = new ArrayList();
-        list.add(select.getOptions());
-        return list;
+        select=new Select(element);
+        return select.getOptions();
     }
     public String getElementText(WebElement element)
     {

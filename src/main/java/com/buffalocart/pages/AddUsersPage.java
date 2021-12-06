@@ -18,6 +18,7 @@ public class AddUsersPage extends TestHelperUtility {
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
+
     List<String> excelList = excel.readDataFromExcel(Constants.FILE_PATH,Constants.ADD_USERS_SHEET_NAME);
 
     /*** Web Elements ***/
@@ -79,7 +80,7 @@ public class AddUsersPage extends TestHelperUtility {
         return page.getElementText(addUserErrorMessage);
     }
     public String getExpectedErrorMessage() {
-        return excelList.get(4);
+        return excelList.get(10);
     }
     public String getPrefix()
     {
@@ -111,7 +112,7 @@ public class AddUsersPage extends TestHelperUtility {
     }
     public void getRoles()
     {
-        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Id, _role,wait.EXPLICIT_WAIT);
+        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Id, _role);
         page.selectDropdownByIndex(role,Integer.parseInt(excelList.get(7)));
     }
     public void enterPrefix(String prefixToEnter)
@@ -144,5 +145,9 @@ public class AddUsersPage extends TestHelperUtility {
     }
     public String getNewUserName() {
         return excelList.get(8);
+    }
+
+    public String getUserName() {
+        return excelList.get(11);
     }
 }

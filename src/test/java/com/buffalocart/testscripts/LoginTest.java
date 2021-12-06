@@ -78,8 +78,7 @@ public class LoginTest extends Base {
         extentTest.get().log(Status.PASS, "Verify the error message displayed for user login with invalid credentials test case passed");
     }
     @Test(priority = 5,enabled = true,description = "TC_004_Verify whether the user is able to click on 'Remember me' checkbox")
-    public void verifyRememberMeCheckbox()
-    {
+    public void verifyRememberMeCheckbox() throws IOException {
         extentTest.get().assignCategory("Regression");
         login = new LoginPage(driver);
         login.clickOnCheckBox();

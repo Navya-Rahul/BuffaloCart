@@ -31,7 +31,9 @@ public class HomeTest extends Base {
         login.enterLoginPassword(loginList.get(3));
         login.clickOnLoginButton();
         extentTest.get().log(Status.PASS, "Successfully Logged in");
+        home.clickOnEndTourButton();
         String actualTitle= home.getHomePageActualTitle();
+        System.out.println(actualTitle);
         extentTest.get().log(Status.PASS, "Actual home page title is generated");
         String expectedTitle = home.getHomePageExpectedTitle();
         extentTest.get().log(Status.PASS, "Expected home page title generated");
@@ -54,9 +56,10 @@ public class HomeTest extends Base {
         login.enterLoginPassword(loginList.get(3));
         login.clickOnLoginButton();
         extentTest.get().log(Status.PASS, "Successfully Logged in");
+        home.clickOnEndTourButton();
         String actualDate = home.getActualDateInHomePage();
         extentTest.get().log(Status.PASS, "Actual date is captured");
-        String expectedDate = home.getActualDateInHomePage();
+        String expectedDate = home.getExpectedDateInHomePage();
         extentTest.get().log(Status.PASS, "Expected date is captured");
         softAssert.assertEquals(actualDate,expectedDate,"ERROR : MISMATCH FOUND IN DATE DISPLAYED IN HOME PAGE");
         home.clickOnUserName();

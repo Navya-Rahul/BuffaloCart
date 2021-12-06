@@ -14,4 +14,8 @@ public class Constants {
     public static final String ROLES_SHEET_NAME = "Roles";
     public static final String ADD_ROLES_SHEET_NAME = "AddRoles";
     public static final String UPDATE_ROLES_SHEET_NAME = "UpdateRoles";
+    public static final String SALES_COMMISSION_AGENTS_SHEET_NAME = "SalesCommissionAgents";
+    public static final String ADD_SALES_COMMISSION_AGENTS_SHEET_NAME = "AddSalesCommissionAgents";
+    public static final String UPDATE_SALES_COMMISSION_AGENTS_SHEET_NAME = "UpdateSalesCommissionAgents";
+    public static final String DELETE_SALES_COMMISSION_AGENTS_SHEET_NAME = "DeleteSalesCommissionAgents";
 }

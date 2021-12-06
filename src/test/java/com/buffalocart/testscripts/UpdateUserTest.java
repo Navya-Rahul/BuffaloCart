@@ -43,6 +43,7 @@ public class UpdateUserTest extends Base {
         users = userManagement.clickOnUserMenu();
         extentTest.get().log(Status.PASS, "Successfully clicked on users tab");
         String userName = updateUser.getEditUserSearch();
+        System.out.println(userName);
         Thread.sleep(6000);
         updateUser = users.clickOnEditButton(userName);
         extentTest.get().log(Status.PASS, "Successfully captured username to search");

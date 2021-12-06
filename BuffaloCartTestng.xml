@@ -41,7 +41,6 @@
                 <exclude name="verifyUsersPageTitle"/>
                 <exclude name="verifyUserSearchWithValidData"/>
                 <exclude name="verifyMessageInUserSearchWithInvalidData"/>
-                <exclude name="verifyErrorMessageWithoutFillingMandatory"/>
             </methods>
         </class>
         <class name="com.buffalocart.testscripts.AddUsersTest">
@@ -49,7 +48,7 @@
                 <exclude name="verifyAddUsersPageTitle"/>
                 <exclude name="verifyUserLoginWithNewlyAddedUser"/>
                 <exclude name="verifyUserCanAddUserDetails"/>
-                <include name="verifyEditUserPageTitle"/>
+                <exclude name="verifyErrorMessageWithoutFillingMandatory"/>
             </methods>
         </class>
         <class name="com.buffalocart.testscripts.UpdateUserTest">
@@ -60,7 +59,7 @@
         </class>
         <class name="com.buffalocart.testscripts.DeleteUserTest">
             <methods>
-                <exclude name="verifyUserCanDeleteUser"/>
+                <include name="verifyUserCanDeleteUser"/>
             </methods>
         </class>
         <class name="com.buffalocart.testscripts.ViewUserTest">
@@ -71,6 +70,7 @@
         <class name="com.buffalocart.testscripts.RolesTest">
             <methods>
                 <exclude name="verifyRolesPageTitle"/>
+                <exclude name="verifyAddedRolesListedInRolesFiels"/>
             </methods>
         </class>
         <class name="com.buffalocart.testscripts.AddRolesTest">
@@ -87,7 +87,27 @@
         </class>
         <class name="com.buffalocart.testscripts.DeleteRolesTest">
             <methods>
-                <include name="verifyUserCanDeleteRole"/>
+                <exclude name="verifyUserCanDeleteRole"/>
+            </methods>
+        </class>
+        <class name="com.buffalocart.testscripts.SalesCommissionAgentsTest">
+            <methods>
+                <exclude name="verifySalesCommissionAgentsPageTitle"/>
+            </methods>
+        </class>
+        <class name="com.buffalocart.testscripts.AddSalesCommissionAgentsTest">
+            <methods>
+                <exclude name="verifyUserCanAddSalesAgent"/>
+            </methods>
+        </class>
+        <class name="com.buffalocart.testscripts.UpdateSalesCommissionAgentsTest">
+            <methods>
+                <exclude name="verifyEditSalesAgentDetails"/>
+            </methods>
+        </class>
+        <class name="com.buffalocart.testscripts.DeleteSalesCommissionAgentsTest">
+            <methods>
+                <exclude name="verifyUserCanDeleteSalesAgent"/>
             </methods>
         </class>
     </classes>

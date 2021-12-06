@@ -62,7 +62,7 @@ public class EmailUtility {
 
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(rMailId));
 
-            message.setSubject("Demo Web Shop Project_" + eDate);
+            message.setSubject("Buffalo Cart Project_" + eDate);
 
             BodyPart messageBodyPart = new MimeBodyPart();
             BodyPart attachmentPart = new MimeBodyPart();

@@ -34,6 +34,9 @@ public class UserManagementPage extends TestHelperUtility {
     @FindBy(xpath=_role)
     private WebElement role;
 
+    private final String _salesCommissionAgents = "//ul[@class='treeview-menu menu-open']//i[@class='fa fa-handshake-o']";
+    @FindBy(xpath=_salesCommissionAgents)
+    private WebElement salesCommissionAgents;
     private final String _userManagementList = "//ul[@class='treeview-menu menu-open']//span";
     @FindBy(xpath = _userManagementList)
     private List<WebElement> userManagementList;
@@ -48,7 +51,7 @@ public class UserManagementPage extends TestHelperUtility {
     }
     public List getActualUserManagementTabValues()
     {
-        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath,_userManagementList,wait.EXPLICIT_WAIT);
+        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath,_userManagementList);
         List<String> list = new ArrayList<String>();
         for (int i = 0;i< userManagementList.size();i++)
         {
@@ -57,13 +60,18 @@ public class UserManagementPage extends TestHelperUtility {
         return list;
     }
     public UsersPage clickOnUserMenu() throws IOException {
-        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath, _user, wait.EXPLICIT_WAIT);
+        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath, _user);
         page.clickOnElement(user);
         return new UsersPage(driver);
     }
     public RolesPage clickOnRoleMenu() throws IOException {
-        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath, _role, wait.EXPLICIT_WAIT);
+        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath, _role);
         page.clickOnElement(role);
         return new RolesPage(driver);
+    }
+    public SalesCommissionAgentsPage clickOnSalesCommissionMenu() throws IOException {
+        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath, _salesCommissionAgents);
+        page.clickOnElement(salesCommissionAgents);
+        return new SalesCommissionAgentsPage(driver);
     }
 }

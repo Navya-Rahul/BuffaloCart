@@ -52,6 +52,14 @@ public class RolesPage extends TestHelperUtility {
     private final String _deleteButton = "//td//button[@class='btn btn-xs btn-danger delete_role_button']";
     @FindBy(xpath=_deleteButton)
     private WebElement deleteButton;
+
+    private final String _roleDropdown = "role";
+    @FindBy(id=_roleDropdown)
+    private WebElement roleDropdown;
+
+    private final String _dropdownArrow = "select2-role-container";
+    @FindBy(id=_dropdownArrow)
+    private WebElement dropdownArrow;
     /*** User Action Methods ***/
 
     public String getActualRolesPageTitle() {
@@ -85,7 +93,7 @@ public class RolesPage extends TestHelperUtility {
     }
 
     public UpdateRolesPage clickOnEditButton(String roleToSearch) throws IOException {
-        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath, _editButton, wait.IMPLICIT_WAIT);
+        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath, _editButton);
         List<ArrayList<WebElement>> actionData = tableUtility.actionData(rowElement, colElement);
         if (values == false) {
             for (int i = 0; i < actionData.size(); i++) {
@@ -120,7 +128,7 @@ public class RolesPage extends TestHelperUtility {
     }
 
     public DeleteRolesPage clickOnDeleteButton(String roleToDelete) throws IOException {
-        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath, _deleteButton, wait.IMPLICIT_WAIT);
+        wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath, _deleteButton);
         List<ArrayList<WebElement>> actionData = tableUtility.actionData(rowElement, colElement);
         if (values == false)
             for (int i = 0; i < actionData.size(); i++) {
@@ -141,5 +149,21 @@ public class RolesPage extends TestHelperUtility {
 
             }
         return new DeleteRolesPage(driver);
+    }
+
+    public boolean getDropdownData(String roleToSearch) {
+        List<WebElement> roleWebElements = page.selectGetOption(roleDropdown);
+        List<String> roleValues = new ArrayList<String>();
+        for (int i = 1;i <roleWebElements.size();i++)
+        {
+            roleValues.add(roleWebElements.get(i).getText());
+        }
+        boolean status = roleValues.contains(roleToSearch);
+        return status;
+    }
+
+    public void clickOnDropdownArrow()
+    {
+        page.clickOnElement(dropdownArrow);
     }
 }

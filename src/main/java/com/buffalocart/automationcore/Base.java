@@ -81,7 +81,6 @@ public class Base {public WebDriver driver;
     @AfterMethod
     public void tearDown(ITestResult result) throws IOException {
         String path = takeScreenshot(result);
-        //extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(path));
         driver.close();
     }
     public String takeScreenshot(ITestResult result) throws IOException

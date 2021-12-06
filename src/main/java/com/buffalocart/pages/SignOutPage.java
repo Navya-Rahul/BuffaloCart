@@ -1,10 +1,13 @@
 package com.buffalocart.pages;
 
 import com.buffalocart.utilities.TestHelperUtility;
+import com.buffalocart.utilities.WaitUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.io.IOException;
 
 public class SignOutPage extends TestHelperUtility {
     WebDriver driver;
@@ -21,8 +24,7 @@ public class SignOutPage extends TestHelperUtility {
     private WebElement signoutButton;
 
     /*** User Action Methods ***/
-    public LoginPage clickOnSignout()
-    {
+    public LoginPage clickOnSignout() throws IOException {
         page.clickOnElement(signoutButton);
         return new LoginPage(driver);
     }

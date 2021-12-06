@@ -38,7 +38,7 @@ public class AddRolesPage extends TestHelperUtility {
     }
 
     public String getRoleToEnter() {
-        return excelList.get(1);
+        return excelList.get(2);
     }
 
     public void enterRole(String roleToEnter) {
@@ -51,6 +51,6 @@ public class AddRolesPage extends TestHelperUtility {
     }
 
     public String getExpectedRole() {
-        return excelList.get(1);
+        return excelList.get(2);
     }
 }

@@ -13,12 +13,11 @@ import java.util.List;
 public class LoginPage extends TestHelperUtility {
     WebDriver driver;
     /*** Page Constructor ***/
-    public LoginPage(WebDriver driver)
-    {
+    public LoginPage(WebDriver driver) throws IOException {
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
-
+    List<String> excelList = excel.readDataFromExcel(Constants.FILE_PATH, Constants.LOGIN_SHEET_NAME);
     /*** Web Elements ***/
     private final String _loginUserName = "username";
     @FindBy(id=_loginUserName)
@@ -81,5 +80,13 @@ public class LoginPage extends TestHelperUtility {
     public List getLoginData() throws IOException {
         List<String> excelList = excel.readDataFromExcel(Constants.FILE_PATH,Constants.LOGIN_SHEET_NAME);
         return excelList;
+    }
+    public String getActualLoginPageTitle()
+    {
+        return page.getPageTitle(driver);
+    }
+    public String getExpectedLoginPageTitle()
+    {
+        return excelList.get(0);
     }
 }
