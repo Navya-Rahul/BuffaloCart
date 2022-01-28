@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="47" total="48" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Regression Suite" duration-ms="11865" started-at="2021-12-07T08:16:51 IST" finished-at="2021-12-07T08:17:03 IST">
+    <groups>
+      <group name="Regression">
+        <method signature="HomeTest.verifyHomePageTitle()[pri:6, instance:com.buffalocart.testscripts.HomeTest@64d2d351]" name="verifyHomePageTitle" class="com.buffalocart.testscripts.HomeTest"/>
+      </group> <!-- Regression -->
+    </groups>
+    <test name="BUFFALO CART" duration-ms="11865" started-at="2021-12-07T08:16:51 IST" finished-at="2021-12-07T08:17:03 IST">
+      <class name="com.buffalocart.testscripts.LoginTest">
+        <test-method status="PASS" signature="sendingEmail()[pri:0, instance:com.buffalocart.testscripts.LoginTest@77e4c80f]" name="sendingEmail" is-config="true" duration-ms="5910" started-at="2021-12-07T08:17:03 IST" finished-at="2021-12-07T08:17:09 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendingEmail -->
+      </class> <!-- com.buffalocart.testscripts.LoginTest -->
+      <class name="com.buffalocart.testscripts.HomeTest">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.buffalocart.testscripts.HomeTest@64d2d351]" name="setup" is-config="true" duration-ms="6627" started-at="2021-12-07T08:16:51 IST" finished-at="2021-12-07T08:16:58 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyHomePageTitle()[pri:6, instance:com.buffalocart.testscripts.HomeTest@64d2d351]" name="verifyHomePageTitle" duration-ms="5062" started-at="2021-12-07T08:16:58 IST" description="TC_006_Verify Home page title" finished-at="2021-12-07T08:17:03 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHomePageTitle -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.buffalocart.testscripts.HomeTest@64d2d351]" name="tearDown" is-config="true" duration-ms="145" started-at="2021-12-07T08:17:03 IST" finished-at="2021-12-07T08:17:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyHomePageTitle status=SUCCESS method=HomeTest.verifyHomePageTitle()[pri:6, instance:com.buffalocart.testscripts.HomeTest@64d2d351] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.buffalocart.testscripts.HomeTest -->
+    </test> <!-- BUFFALO CART -->
+  </suite> <!-- Regression Suite -->
+</testng-results>
