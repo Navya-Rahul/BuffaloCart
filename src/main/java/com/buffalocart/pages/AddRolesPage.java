@@ -29,6 +29,10 @@ public class AddRolesPage extends TestHelperUtility {
     @FindBy(xpath=_saveButton)
     private WebElement saveButton;
 
+    private final String _searchBox = "//input[@class='form-control input-sm']";
+    @FindBy(xpath=_searchBox)
+    private WebElement searchBox;
+
     /*** User Action Methods ***/
     public String getActualAddRolesPage() {
         return page.getPageTitle(driver);
@@ -53,4 +57,6 @@ public class AddRolesPage extends TestHelperUtility {
     public String getExpectedRole() {
         return excelList.get(2);
     }
+
+
 }

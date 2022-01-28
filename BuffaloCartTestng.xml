@@ -22,7 +22,7 @@
         </class>
         <class name="com.buffalocart.testscripts.HomeTest">
             <methods>
-                <exclude name="verifyHomePageTitle"/>
+                <include name="verifyHomePageTitle"/>
                 <exclude name="verifyDateInHomePage"/>
             </methods>
         </class>
@@ -59,7 +59,7 @@
         </class>
         <class name="com.buffalocart.testscripts.DeleteUserTest">
             <methods>
-                <include name="verifyUserCanDeleteUser"/>
+                <exclude name="verifyUserCanDeleteUser"/>
             </methods>
         </class>
         <class name="com.buffalocart.testscripts.ViewUserTest">

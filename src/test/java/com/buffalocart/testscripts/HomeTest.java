@@ -33,7 +33,6 @@ public class HomeTest extends Base {
         extentTest.get().log(Status.PASS, "Successfully Logged in");
         home.clickOnEndTourButton();
         String actualTitle= home.getHomePageActualTitle();
-        System.out.println(actualTitle);
         extentTest.get().log(Status.PASS, "Actual home page title is generated");
         String expectedTitle = home.getHomePageExpectedTitle();
         extentTest.get().log(Status.PASS, "Expected home page title generated");

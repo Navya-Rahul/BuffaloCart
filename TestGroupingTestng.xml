@@ -5,13 +5,13 @@
         <listener class-name="com.buffalocart.listener.TestListener"/>
     </listeners>
     <test name="BUFFALO CART">
-        <!--<groups>
+        <groups>
             <run>
                 <include name="Regression"/>
                 <include name="Sanity"/>
                 <include name="Smoke"/>
             </run>
-        </groups>-->
+        </groups>
         <parameter name="browser" value="chrome"/>
         <groups>
             <run>

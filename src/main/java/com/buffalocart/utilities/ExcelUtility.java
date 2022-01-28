@@ -3,6 +3,7 @@ package com.buffalocart.utilities;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -16,6 +17,7 @@ public class ExcelUtility {
     public static XSSFWorkbook wb;
     public static XSSFSheet sh;
     public static FileInputStream f;
+    public static XSSFCell cell;
     public List<String> readDataFromExcel(String filePath, String sheetName) throws IOException {
         String path = System.getProperty("user.dir")+ File.separator+ filePath;
         List<String> list = new ArrayList<String>();

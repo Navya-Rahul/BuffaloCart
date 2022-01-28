@@ -74,7 +74,7 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
-                        <suiteXmlFile>defaulttestng.xml</suiteXmlFile>
+                        <suiteXmlFile>BuffaloCartTestng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

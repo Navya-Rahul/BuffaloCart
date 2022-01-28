@@ -2,13 +2,19 @@ package com.buffalocart.utilities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
 public class WaitUtility {
+    private final WebDriver driver;
     WebDriverWait wait;
+    public WaitUtility(WebDriver driver)
+    {
+        this.driver = driver;
+    }
     public static final long PAGE_LOAD_WAIT = 20;
     public static final long EXPLICIT_WAIT = 20;
     public static final long IMPLICIT_WAIT = 20;
@@ -22,6 +28,7 @@ public class WaitUtility {
     {
         Id,Xpath,Cssselector,Classname,Name,Tagname,Linktext,Partiallinktext
     }
+
     public void waitForVisibilityOfElement(WebDriver driver, Enum locatortype, String target)
     {
         WebDriverWait wait = new WebDriverWait(driver, TimeUnit.SECONDS.toSeconds(EXPLICIT_WAIT));
@@ -95,4 +102,5 @@ public class WaitUtility {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText(target)));
         }
     }
+    
 }

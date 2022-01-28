@@ -51,8 +51,6 @@ public class HomePage extends TestHelperUtility {
     }
     public void clickOnUserName()
     {
-        //wait.setExplicitWait(driver);
-        //wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath,_userName);
         page.clickOnElement(userName);
     }
     public String getHomePageActualTitle()
